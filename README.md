@@ -7,16 +7,16 @@
 ```Objective-C
 
 NSURL *url;
-            if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
-                url = [NSURL URLWithString:[NSString stringWithFormat:@"APP-Prefs:root=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]]];
-                if ([[UIApplication sharedApplication] canOpenURL:url]) {
-                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-                }
-            } else {
-                url = [NSURL URLWithString:[NSString stringWithFormat:@"prefs:root=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]]];
-                if ([[UIApplication sharedApplication] canOpenURL:url]) {
-                    [[UIApplication sharedApplication] openURL:url];
-                }
-            }
+if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"APP-Prefs:root=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    }
+} else {
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"prefs:root=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
             
 ```
