@@ -4,7 +4,8 @@
 > iOS知识点
 ##### 应用内跳转到系统内app特定设置的方法
 
-```
+```Objective-C
+
 NSURL *url;
             if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
                 url = [NSURL URLWithString:[NSString stringWithFormat:@"APP-Prefs:root=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]]];
@@ -17,4 +18,5 @@ NSURL *url;
                     [[UIApplication sharedApplication] openURL:url];
                 }
             }
+            
 ```
